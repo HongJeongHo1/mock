@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">폼 전송</title>
+<link rel="styleSheet" href="/css/table.css" />
+	<style>
+		input {
+			width: 98%;
+			height : 25px;
+		}
+		select{
+			width: 98%;
+			height: 25px;
+		}
+		button{
+			width: 49%;
+			height: 25px;
+			
+		
+		}
+	</style>
+</head>
+<body>
+	<h1>회원가입폼</h1>
+	
+	<form th:action="@{/member/addMember}">
+		<table>
+		<tr>
+			<td>
+				<label for="memberId">회원아이디</label>
+			</td>
+			<td>
+				<input type="text" id="memberId" name="memberId" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="memberId">회원비밀번호</label>
+			</td>
+			<td>
+				<input type="text" id="memberPw" name="memberPw"/>
+			</td>
+				</tr>
+		<tr>
+			<td>
+				<label for="memberName">회원이름</label>
+			</td>
+			<td>
+				<input type="text" id="memberName" name="memberName"/>
+			</td>
+			</tr>	
+		<tr>
+			<td>
+				<label for="memberGrade">회원권한</label>
+			</td>
+			<td>
+				<select id="memberGrade" name="memberGrade">
+					<option value="관리자">관리자</option>
+					<option value="판매자">판매자</option>
+					<option value="구매자">구매자</option>				
+				</select>
+			</td>
+		</tr>		
+		<tr>
+			<td>
+				<label for="memberId">회원이메일</label>
+			</td>
+			<td>
+				<input type="text" id="memberEmail" name= "memberEmail"/>
+			</td>
+		</tr>	
+		<tr>
+			<td colspan="2">
+				<button type="submit">회원가입</button>
+				<button type="reset">초기화</button>
+			
+			</td>
+		
+		
+		</table>
+	
+	</form>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">회원 상세 정보</title>
+<link rel="stylesheet" href="/css/table.css" />
+</head>
+<body>
+
+
+	<table>
+		<thead>
+			<tr>
+				<th colspan="2">상세보기</th>
+			</tr>
+		</thead>
+		<tbody>
+			<th:block th:if="${memberInfo == null}">
+    <tr>
+        <td colspan="2">등록된 회원의 정보가 없습니다</td>
+    </tr>
+</th:block>
+<th:block th:if="${memberInfo != null}" th:object="${memberInfo}">
+    <tr>
+        <td>아이디</td>
+        <td th:text="*{userId}"></td>
+    </tr>
+    <tr>
+        <td>비밀번호</td>
+        <td th:text="*{userPw}"></td>
+    </tr>
+    <tr>
+        <td>이름</td>
+        <td th:text="*{userName}"></td>
+    </tr>
+    <tr>
+        <td>권한</td>
+        <td th:text="*{userGrade}"></td>
+    </tr>
+    <tr>
+        <td>이메일</td>
+        <td th:text="*{userEmail}"></td>
+    </tr>
+    <tr>
+        <td>연락처</td>
+        <td th:text="*{userMobile}"></td>
+    </tr>
+</th:block>
+
+		</tbody>
+	</table>
+
+
+
+	<!-- <h1 th:text="${title}">회원 상세 정보</h1>
+    
+    <div th:object="${userInfo}">
+        <table>
+            <tr>
+                <th>아이디</th>
+                <td th:text="*{userId}"></td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td th:text="*{userPw}"></td>
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td th:text="*{userName}"></td>
+            </tr>
+            <tr>
+                <th>등급</th>
+                <td th:text="*{userGrade}"></td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td th:text="*{userEmail}"></td>
+            </tr>
+            <tr>
+                <th>연락처</th>
+                <td th:text="*{userMobile}"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <a th:href="@{/exam/exam5}" >목록으로</a>
+    </div> -->
+</body>
+</html>

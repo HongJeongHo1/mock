@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">thymeleaf 유틸리티 오브젝트</title>
+<link rel="styleSheet" href="/css/table.css" />
+	<style>
+	
+	/* target 클래스 스타일 지정 */
+		.target{
+			background-color : hotpink;
+			color : white;
+		}
+	</style>
+</head>
+<body th:object=${userInfo}>
+		<h1>thymeleaf 링크 표현</h1>
+		- 문법 : th:href="@{#thymeleaf가 제공하는 유틸리티}" <br />
+ 		- 참고사이트 :  https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#appendix-b-expression-utility-objects <br />
+ 		
+ 		<h2 th:text="${now}"></h2>
+ 		<h2 th:text="${#dates.createToday()}"></h2>
+ 		<h2 th:text="${#dates.format(now, 'yyyy-MM-dd HH:mm:ss')}"></h2>
+
+      <!--  -->
+	<h2 th:text="${#lists.isEmpty(userList)}">isEmpty 길이가 1이상이면 true</h2>
+		<h2 th:text="${#lists.isEmpty(emptyList)}">길이가 0이면 false</h2>
+	<h2 th:text="${#lists.isEmpty(nullList)}">null false</h2>
+		<h2 th:text="${userList.size()}"></h2>
+
+
+		<!-- 천자리 구분기호  -->
+		<h2 th:text="|￦${#numbers.formatInteger(price, 3, 'COMMA')}|"></h2>
+</body>
+</html>
